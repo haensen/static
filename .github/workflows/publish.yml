@@ -1,0 +1,26 @@
+name: Build and publish to GH Pages
+on: [push]
+
+permissions:
+    contents: read
+    pages: write
+    id-token: write
+
+jobs:
+    publish:
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Get repository
+                uses: actions/checkout@v4
+            -   name: Install dependencies
+                run: npm -g install sass
+            -   name: Build distribution
+                run: chmod +x dist.sh && ./dist.sh
+            -   name: Setup GH Pages
+                uses: actions/configure-pages@v4
+            -   name: Upload Artifact
+                uses: actions/upload-pages-artifact@v3
+                with:
+                    path: ./dist
+            -   name: Deploy to GH Pages
+                uses: actions/deploy-pages@v4
