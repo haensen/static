@@ -1,7 +1,6 @@
 /// <reference path="../node_modules/phaser/types/phaser.d.ts" />
 
 import levels from './levels.js';
-// levels.splice(1);
 
 class Motor extends Phaser.GameObjects.Particles.ParticleEmitter {
     rocket: Phaser.Physics.Matter.Sprite;
@@ -67,7 +66,7 @@ class Level extends Phaser.Scene {
         this.load.atlas('flares', 'images/flares.png', 'images/flares.json');
         this.load.image('waypoint', 'images/banana.png');
         this.load.image('finish', 'images/finishFlag.png');
-        for (let i = 1; i <= 20; i++) {
+        for (let i = 1; i <= 6; i++) {
             this.load.image('planet'+i, 'images/'+i+'.png');
         }
     }
@@ -149,7 +148,7 @@ class Level extends Phaser.Scene {
             const forceVector = new Phaser.Math.Vector2(1,0).setAngle(angle).scale(force);
             this.rocket.applyForce(forceVector);
 
-            if (distance < (planetConfig.radius*0.9 + 17)) {
+            if (distance < (planetConfig.radius + this.rocket.displayWidth/2.0)) {
                 this.hasEnded = true;
             }
         }
@@ -244,4 +243,5 @@ const phaserConfig = {
         }
     },
 };
+
 const game = new Phaser.Game(phaserConfig);
