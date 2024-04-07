@@ -1,6 +1,7 @@
 /// <reference path="../node_modules/phaser/types/phaser.d.ts" />
 
 import levels from './levels.js';
+import MainMenu from './mainMenu.js';
 
 class Motor extends Phaser.GameObjects.Particles.ParticleEmitter {
     rocket: Phaser.Physics.Matter.Sprite;
@@ -205,37 +206,12 @@ class GameFinished extends Phaser.Scene {
     }
 }
 
-class MainMenu extends Phaser.Scene {
-    static currentLevel: integer = 0;
-    static tries: integer = 1;
-
-    constructor() {
-        super({key: 'mainMenu'});
-    }
-    init(data: Object) {
-        if (data.outcome == undefined) return;
-        if (data.outcome == 'failure') {
-            MainMenu.tries++;
-            return;
-        } else {
-            MainMenu.currentLevel++;
-        }
-    }
-    update() {
-        if (MainMenu.currentLevel < levels.length) {
-            this.scene.start('level', {levelIndex: MainMenu.currentLevel});
-        } else {
-            this.scene.start('gameFinished', {tries: MainMenu.tries});
-        }
-    }
-}
-
 const phaserConfig = {
     type: Phaser.AUTO,
     parent: 'game',
     width: 800,
     height: 600,
-    scene: [new MainMenu(), new Level(), new GameFinished()],
+    scene: [new MainMenu(levels.length), new Level(), new GameFinished()],
     physics: {
         default: 'Matter',
         matter: {
