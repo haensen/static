@@ -2,6 +2,7 @@
 
 import levels from './levels.js';
 import MainMenu from './mainMenu.js';
+import levelStorage from './levelStorage.js';
 
 class Motor extends Phaser.GameObjects.Particles.ParticleEmitter {
     rocket: Phaser.Physics.Matter.Sprite;
@@ -175,11 +176,15 @@ class Level extends Phaser.Scene {
         if (this.hasEnded) {
             let outcome = '';
             if (!this.goalReached) {
-                outcome = 'failure';
+                this.scene.start('level', {levelIndex: this.level});
             } else {
-                outcome = 'finish';
+                levelStorage.setMaxPassed(this.level+1);
+                if (this.level !== levels.length) {
+                    this.scene.start('level', {levelIndex: this.level+1});
+                } else {
+                    this.scene.start('mainMenu');
+                }
             }
-            this.scene.start('mainMenu', {outcome: outcome});
         }
     }
 }

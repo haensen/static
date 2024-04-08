@@ -8,23 +8,71 @@ body {
     width: 100%;
     height: 100vh;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     #game {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        width: 100%;
-    }
-
-    @media (min-aspect-ratio: 4/3) {
-        #game canvas {
+        @media (min-aspect-ratio: 4/3) {
             height: 100vh;
         }
-    }
-    @media (max-aspect-ratio: 4/3) {
-        #game canvas {
+        @media (max-aspect-ratio: 4/3) {
             width: 100%;
+        }
+        aspect-ratio: calc(4/3);
+        position: relative;
+
+        canvas, div {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+
+        .gui {
+            &.hidden {
+                z-index: -1;
+            }
+            &.loading {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                h1 {
+                    color: white;
+                }
+            }
+            .level-menu {
+                h1 {
+                    color: white;
+                }
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                .level-button {
+                    width: 70px;
+                    height: 70px;
+                    position: relative;
+                    
+                    border: 3px solid orange;
+                    border-radius: 3px;
+                    background-color: darkorange;
+                    &.disabled {
+                        background-color: gray;
+                    }
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    &:hover.enabled {
+                        cursor: pointer;
+                        border-color: darkorange;
+                        background-color: orange;
+                    }
+                }
+            }
+            z-index: 1;
         }
     }
 }
