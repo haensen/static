@@ -4,3 +4,4 @@ mkdir dist
 chmod +x ./*/dist.sh
 ./*/dist.sh
 cp index.html dist
+cp -r images dist

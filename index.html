@@ -4,12 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Static sites</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+
     <style>
         html {
-            background: radial-gradient(circle, #8d89d8 25%, transparent 26%),radial-gradient(circle at bottom left, #8d89d8 12%, transparent 13%),radial-gradient(circle at bottom right, #8d89d8 12%, transparent 13%),radial-gradient(circle at top left, #8d89d8 12%, transparent 13%),radial-gradient(circle at top right, #8d89d8 12%, transparent 13%);
-            background-size: 3em 3em;
-            background-color: #0900ff;
-            opacity: 1;
+            font-family: "Inter", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: normal;
+            font-style: normal;
+            font-variation-settings: "slnt" 0;
         }
 
         body {
@@ -19,28 +29,85 @@
         .container {
             width: 100%;
             height: 100vh;
+            overflow: hidden;
+            position: relative;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: end;
+
+            background-color: black;
+            background-image: url("images/bg.jpg");
+            background-size: cover;
+        }
+        .container::before {
+            content: "";
+            position: absolute;
+            background-image: url("images/rocket.jpg");
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            opacity: 0;
+            transition: opacity 0.8s;
+        }
+        .container:has(a.rocket:hover)::before {
+            opacity: 1;
+        }
+
+        .glass {
+            background-color: rgba(255,255,255,0.1);
+            backdrop-filter: blur(2px);
+            transform: rotate(5deg);
+            height: 200vh;
+            width: 200%;
+            overflow: hidden;
+            right: calc(-200% + 25em);
+            top: -50vh;
+            position: absolute;
+            border-left: 1px rgba(255,255,255,0.25) solid;
         }
 
         .links {
-            background-color: white;
-            width: 90%;
-            max-width: 600px;
+            width: 25em;
             padding: 30px;
-            border-radius: 10px;
+            /* padding-left: 7em; */
+            box-sizing: border-box;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+        }
+        .links .center {
+            width: fit-content;
+            height: fit-content;
+        }
+        .links h1 {
+            font-size: 48px;
+            text-shadow: white 1px 1px 5px,white 0px 0px 5px;
+
+            font-family: "Roboto Slab", serif;
+            font-optical-sizing: auto;
+            font-weight: normal;
+            font-style: normal;
         }
         .links a {
-            font-size: larger;
+            font-size: 32px;
+            transform: rotate(40deg);
+            color: blue;
+            text-shadow: orange 1px 1px 5px,orange 0px 0px 3px;
+            margin-left: 1em;
+        }
+        .links a:hover {
+            color: darkblue;
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="glass"></div>
         <div class="links">
-            <h1>Static sites</h1>
-            <a href="rocket/index.html">Rocket game</a>
+            <div class="center">
+                <h1>Static sites</h1>
+                <a class="rocket" href="rocket/index.html">Rocket game</a>
+            </div>
         </div>
     </div>
 </body>
