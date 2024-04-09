@@ -111,4 +111,34 @@ export default [
         ],
         texts: []
     },
+    {
+        start: { x: 0.5, y: 0.1 },
+        waypoints: [
+            { x: 0.1, y: 0.5 },
+        ],
+        end: { x: 0.9, y: 0.5 },
+        planets: [
+            { x: 0.3, y: 0.5, weight: 10, image: 'planet4', radius: 80 },
+            { x: 0.7, y: 0.5, weight: 10, image: 'planet5', radius: 80 },
+        ],
+        texts: []
+    },
+    {
+        start: { x: 0.35, y: 0.35 },
+        waypoints: [
+            { x: 0.2, y: 0.5 },
+            { x: 0.35, y: 0.5 },
+            { x: 0.8, y: 0.5 },
+            { x: 0.65, y: 0.5 },
+            { x: 0.5, y: 0.2 },
+            // { x: 0.5, y: 0.35 },
+            { x: 0.5, y: 0.8 },
+            { x: 0.5, y: 0.65 },
+        ],
+        end: { x: 0.5, y: 0.3 },
+        planets: [
+            { x: 0.5, y: 0.5, weight: 5, image: 'planet2', radius: 50 },
+        ],
+        texts: []
+    },
 ];

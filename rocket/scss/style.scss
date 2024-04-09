@@ -48,6 +48,7 @@ body {
             }
             .main-menu {
                 background-image: url("../images/menuBg.jpg");
+                background-size: cover;
                 h1,h2 {
                     color: white;
                     font-family: "Tilt Neon", sans-serif;
@@ -59,10 +60,10 @@ body {
                         "YROT" 0;
                 }
                 & > h1 {
-                    font-size: 5vw;
+                    font-size: 10vmin;
                 }
                 & > h2 {
-                    font-size: 4vw;
+                    font-size: 6vmin;
                 }
                 display: flex;
                 flex-direction: column;
@@ -77,8 +78,9 @@ body {
                 flex-wrap: wrap;
                 gap: 10px;
                 .level-button {
-                    width: 70px;
-                    height: 70px;
+                    font-size: 3vmin;
+                    width: 7vmin;
+                    height: 7vmin;
                     position: relative;
                     
                     border: 3px solid orange;
