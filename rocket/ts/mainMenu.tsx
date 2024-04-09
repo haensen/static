@@ -16,7 +16,7 @@ function LevelMenu(props) {
         onClick={i+1 <= maxEnabled ? () => props.levelOpener(i) : ()=>{}}
         />
     );
-    return <div className="level-menu">{buttons}</div>;
+    return <div className="main-menu"><h1>Rocket game</h1><h2>Select level:</h2><div className="level-menu">{buttons}</div></div>;
 }
 
 class MainMenu extends Phaser.Scene {

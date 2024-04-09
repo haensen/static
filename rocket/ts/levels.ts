@@ -78,12 +78,36 @@ export default [
             { x: 0.2, y: 0.5, weight: 1.0, image: 'planet5', radius: 40 },
             { x: 0.6, y: 0.4, weight: 1.0, image: 'planet6', radius: 40 },
             { x: 0.7, y: 0.8, weight: 1.0, image: 'planet1', radius: 40 },
-            { x: 0.4, y: 0.65, weight: 1.0, image: 'planet2', radius: 40 },
+            { x: 0.4, y: 0.69, weight: 1.0, image: 'planet2', radius: 40 },
             { x: 0.6, y: 0.85, weight: 1.0, image: 'planet3', radius: 40 },
             { x: 0.8, y: 0.85, weight: 1.0, image: 'planet4', radius: 40 },
             { x: 0.9, y: 0.255, weight: 1.0, image: 'planet5', radius: 40 },
             { x: 0.21, y: 0.85, weight: 1.0, image: 'planet6', radius: 40 },
             { x: 0.35, y: 0.565, weight: 1.0, image: 'planet1', radius: 40 },
+        ],
+        texts: []
+    },
+    {
+        start: { x: 0.9, y: 0.6 },
+        waypoints: [
+            { x: 0.27, y: 0.85 },
+        ],
+        end: { x: 0.34, y: 0.06 },
+        planets: [
+            { x: 0.75, y: 0.64, weight: 1.5, image: 'planet5', radius: 35 },
+            { x: 0.3, y: 0.78, weight: 1.5, image: 'planet6', radius: 30 },
+            { x: 0.32, y: 0.16, weight: 1.5, image: 'planet1', radius: 40 },
+        ],
+        texts: []
+    },
+    {
+        start: { x: 0.2, y: 0.1 },
+        waypoints: [
+            { x: 0.18, y: 0.5 },
+        ],
+        end: { x: 0.22, y: 0.8 },
+        planets: [
+            { x: 1.05, y: 0.7, weight: 40, image: 'planet5', radius: 100 },
         ],
         texts: []
     },

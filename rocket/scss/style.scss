@@ -22,7 +22,7 @@ body {
         aspect-ratio: calc(4/3);
         position: relative;
 
-        canvas, div {
+        canvas, div.main-menu {
             height: 100%;
             width: 100%;
             position: absolute;
@@ -32,6 +32,12 @@ body {
             &.hidden {
                 z-index: -1;
             }
+            &.level-menu {
+                z-index: 1;
+                .main-menu {
+                    z-index: 1;
+                }
+            }
             &.loading {
                 display: flex;
                 align-items: center;
@@ -40,14 +46,35 @@ body {
                     color: white;
                 }
             }
-            .level-menu {
-                h1 {
+            .main-menu {
+                background-image: url("../images/menuBg.jpg");
+                h1,h2 {
                     color: white;
+                    font-family: "Tilt Neon", sans-serif;
+                    font-optical-sizing: auto;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-variation-settings:
+                        "XROT" 0,
+                        "YROT" 0;
                 }
+                & > h1 {
+                    font-size: 5vw;
+                }
+                & > h2 {
+                    font-size: 4vw;
+                }
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            .level-menu {
                 display: flex;
                 flex-direction: row;
                 align-items: center;
                 justify-content: center;
+                flex-wrap: wrap;
                 gap: 10px;
                 .level-button {
                     width: 70px;
@@ -59,6 +86,9 @@ body {
                     background-color: darkorange;
                     &.disabled {
                         background-color: gray;
+                    }
+                    &.disabled:hover {
+                        cursor: default; // Hide the text cursor
                     }
 
                     display: flex;
@@ -72,7 +102,6 @@ body {
                     }
                 }
             }
-            z-index: 1;
         }
     }
 }

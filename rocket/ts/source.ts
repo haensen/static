@@ -179,7 +179,7 @@ class Level extends Phaser.Scene {
                 this.scene.start('level', {levelIndex: this.level});
             } else {
                 levelStorage.setMaxPassed(this.level+1);
-                if (this.level !== levels.length) {
+                if (this.level !== levels.length-1) {
                     this.scene.start('level', {levelIndex: this.level+1});
                 } else {
                     this.scene.start('mainMenu');
