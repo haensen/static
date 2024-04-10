@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS tricks</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>CSS tricks</h1>
+    <div class="trick-container">
+        <div class="trick">
+            <h2>Cube with transform: rotateX() etc. and @keyframes</h2>
+            <div class="cube-container">
+                <div class="cube">
+                    <div class="face front">1</div>
+                    <div class="face back">2</div>
+                    <div class="face right">3</div>
+                    <div class="face left">4</div>
+                    <div class="face top">5</div>
+                    <div class="face bottom">6</div>
+                </div>
+            </div>
+        </div>
+        <div class="trick">
+            <h2>Custom border for element with clip-path</h2>
+            <div class="clip-img"></div>
+        </div>
+        <div class="trick">
+            <h2>Line numbers using counter-*</h2>
+            <code class="code">
+                <p>code.code {</p>
+                <p>    display: block;</p>
+                <p>    background-color: black;</p>
+                <p>    color: white;</p>
+                <p>    counter-reset: code-line 0;</p>
+                <p></p>
+                <p>    /* Nested CSS should work nowadays in vanilla */</p>
+                <p>    p::before {</p>
+                <p>        content: counter(code-line) ": ";</p>
+                <p>        counter-increment: code-line;</p>
+                <p>        width: 2em;</p>
+                <p>        display: inline-block;</p>
+                <p>    }</p>
+                <p>    p {</p>
+                <p>        margin: 0 0 0 5px;</p>
+                <p>        whitespace: pre;</p>
+                <p>    }</p>
+                <p>}</p>
+            </code>
+        </div>
+        <div class="trick">
+            <h2>Container relative units</h2>
+            <div class="contain-container">
+                <code class="left code">
+                    <p>.left</p>
+                    <p>width -> 30cqw = 60vw*0.3</p>
+                </code>
+                <code class="right code">
+                    <p>.contain-container {</p>
+                        <p>    container-name: test;</p>
+                        <p>    container-type: size;</p>
+                        <p>    width: 60vw;</p>
+                        <p>    height: 20em;</p>
+                        <p>    display: flex;</p>
+                        <p>    justify-content:space-between;</p>
+                        <p>    background-color: beige;</p>
+                        <p>    padding: 10px;</p>
+                        <p></p>
+                        <p>    .left.code {</p>
+                        <p>        background-color: blue;</p>
+                        <p>        width: 30cqw;</p>
+                        <p>    }</p>
+                        <p>    .right.code {</p>
+                        <p>        width: 60cqw;</p>
+                        <p>        background-color: gray;</p>
+                        <p>    }</p>
+                        <p>}</p>
+                </code>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

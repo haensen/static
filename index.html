@@ -24,6 +24,9 @@
 
         body {
             margin: 0;
+            background-color: black;
+            background-image: url("images/bg.jpg");
+            background-size: cover;
         }
 
         .container {
@@ -34,23 +37,31 @@
             display: flex;
             align-items: center;
             justify-content: end;
-
-            background-color: black;
-            background-image: url("images/bg.jpg");
-            background-size: cover;
         }
-        .container::before {
+        .preview {
             content: "";
             position: absolute;
-            background-image: url("images/rocket.jpg");
+            z-index: -1;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100vh;
             background-size: cover;
             opacity: 0;
             transition: opacity 0.8s;
         }
-        .container:has(a.rocket:hover)::before {
+        .container:has(a.rocket:hover) ~ .preview.rocket {
             opacity: 1;
+        }
+        .container:has(a.css-tricks:hover) ~ .preview.css-tricks {
+            opacity: 1;
+        }
+        .rocket.preview {
+            background-image: url("images/rocket.jpg");
+        }
+        .css-tricks.preview {
+            background-image: url("images/css_tricks.png");
+            filter: blur(2px) grayscale(50%);
         }
 
         .glass {
@@ -64,6 +75,7 @@
             top: -50vh;
             position: absolute;
             border-left: 1px rgba(255,255,255,0.25) solid;
+            z-index: 0;
         }
 
         .links {
@@ -71,9 +83,10 @@
             padding: 30px;
             /* padding-left: 7em; */
             box-sizing: border-box;
-            z-index: 1;
             display: flex;
+            flex-direction: column;
             justify-content: center;
+            z-index: 1;
         }
         .links .center {
             width: fit-content;
@@ -106,9 +119,12 @@
         <div class="links">
             <div class="center">
                 <h1>Static sites</h1>
-                <a class="rocket" href="rocket/index.html">Rocket game</a>
+                <a class="rocket" href="rocket/index.html">Rocket game</a><br>
+                <a class="css-tricks" href="css-tricks/index.html">CSS tricks</a>
             </div>
         </div>
     </div>
+    <div class="preview rocket"></div>
+    <div class="preview css-tricks"></div>
 </body>
 </html>
